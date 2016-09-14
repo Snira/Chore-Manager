@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<div class="page-header">
+<div id="header" class="page-header">
     <h1>Chore Manager</h1>
 </div>
 <div id="main" class="container-fluid">
