@@ -5766,4 +5766,57 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+#sidebar {
+  background: #FBFBFB;
+  width: 200px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: -200px;
+  top: 50px;
+  border-right: solid 0.5px #d3e0e9;
+  -webkit-transition: left 0.3s linear;
+  transition: left 0.3s linear; }
+
+#sidebar.visible {
+  left: 0px;
+  -webkit-transition: left 0.3s linear;
+  transition: left 0.3s linear; }
+
+#sidebar ul {
+  margin-top:20px;
+  padding: 0px; }
+
+#sidebar ul li {
+  list-style: none; }
+
+#sidebar ul li a {
+  background: lightgrey;
+  color: darkslategray;
+  border-bottom: 1px solid grey;
+  display: block;
+  width: 180px;
+  padding: 10px;
+  text-decoration: none; }
+
+#sidebarbtn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  margin: 20px; }
+
+#sidebarbtn span {
+  height: 1px;
+  background: #111;
+  margin-bottom: 5px;
+  display: block; }
+
+#sidebarbtn span:nth-child(2) {
+  width: 75%; }
+
+#sidebarbtn span:nth-child(3) {
+  width: 50%; }
+
 /*# sourceMappingURL=app.css.map */
