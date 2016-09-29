@@ -23,7 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user  = Auth::user();
+        if($user->role == 'user') {
+            return view('home',['user' => $user]);
+        }
+        if($user->role == 'admin'){
+            return view('adminhome',['user' => $user]);
+        }
 
-        return view('home');
     }
 }
