@@ -15,11 +15,10 @@ class CreateChoreTable extends Migration
     {
         Schema::create('chores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->string('description');
 
-            $table->foreign('user_id')->references('id')->on('users');
+
 
         });
     }

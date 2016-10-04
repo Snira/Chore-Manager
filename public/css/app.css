@@ -5767,14 +5767,13 @@ button.close {
     display: none !important; } }
 
 #sidebar {
-  background: #FBFBFB;
+  background: #151718;
   width: 200px;
   height: 100%;
   display: block;
   position: absolute;
   left: -200px;
   top: 50px;
-  border-right: solid 0.5px #d3e0e9;
   -webkit-transition: left 0.3s linear;
   transition: left 0.3s linear; }
 
@@ -5784,16 +5783,16 @@ button.close {
   transition: left 0.3s linear; }
 
 #sidebar ul {
-  margin-top:20px;
+  margin: 0px;
   padding: 0px; }
 
 #sidebar ul li {
   list-style: none; }
 
 #sidebar ul li a {
-  background: lightgrey;
-  color: darkslategray;
-  border-bottom: 1px solid grey;
+  background: #1C1E1F;
+  color: #ccc;
+  border-bottom: 1px solid #111;
   display: block;
   width: 180px;
   padding: 10px;
