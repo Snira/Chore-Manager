@@ -33,16 +33,9 @@
     <div class="container">
 
 
-
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
-
-            <div id="sidebarbtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
 
 
             <!-- Branding Image -->
@@ -57,6 +50,14 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                @if(!Auth::guest())
+                    <li><a class="navbar-link" href="#">Leaderboards</a></li>
+                    @if(Auth::user()->role == 'admin')
+                        <li>
+                            <a href="{{ route('admin.index') }}">
+                                Manage users</a></li>
+                    @endif
+                @endif
 
 
                 &nbsp;
@@ -103,22 +104,7 @@
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
-<div id="sidebar">
-    <ul>
-        <li><a href="#">Link1</a></li>
-        <li><a href="#">Link2</a></li>
-        <li><a href="#">Link3</a></li>
-        <li><a href="#">Link4</a></li>
-    </ul>
-</div>
 
 
-<script>
-    $(document).ready(function () {
-        $('#sidebarbtn').click(function () {
-            $('#sidebar').toggleClass('visible');
-        });
-    });
-</script>
 </body>
 </html>

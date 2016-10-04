@@ -14,11 +14,11 @@
                                     <th> {{ trans('choremanager.users') }}</th>
                                     <th>{{ trans('choremanager.options') }}</th>
                                 </tr>
-                                @foreach($allusers as $users)
+                                @foreach($users as $users)
                                     <tr>
                                         <td>{{$users->name}}</td>
                                         <td>
-                                            <input type="checkbox" checked data-toggle="toggle" data-on="Active"
+                                            <input type="checkbox" name="users[status]" checked data-toggle="toggle" data-on="Active"
                                                    data-off="Non-Active">
                                             <button class="btn btn-danger">{{ trans('choremanager.delete') }}</button>
                                         </td>
@@ -26,6 +26,7 @@
                                 @endforeach
                             </table>
                         </form>
+                        <a href="">Create User</a>
                     </div>
                 </div>
             </div>
