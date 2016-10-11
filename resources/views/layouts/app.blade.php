@@ -56,6 +56,9 @@
                         <li>
                             <a href="{{ route('admin.index') }}">
                                 Manage users</a></li>
+                        <li>
+                            <a href="{{ route('chores.index') }}">
+                                Manage chores</a></li>
                     @endif
                 @endif
 

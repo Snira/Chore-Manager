@@ -18,3 +18,11 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::resource('admin', 'UserController');
+Route::resource('chores', 'ChoreController');
+
+Route::get('user/create',
+    ['as' => 'users.create', 'uses' => 'UserController@create']);
+Route::post('user/create',
+    ['as' => 'users.create', 'uses' => 'UserController@store']);
+
+
