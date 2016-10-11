@@ -26,7 +26,7 @@
                                 @endforeach
                             </table>
                         </form>
-                        <a href="">Create User</a>
+                        <a href="{{route('users.create')}}">Create User</a>
                     </div>
                 </div>
             </div>

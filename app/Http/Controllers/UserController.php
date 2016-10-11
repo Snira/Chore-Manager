@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -35,11 +36,11 @@ class UserController extends Controller
         $data = $request->input('users');
         $data['role'] = User::ROLE_USER;
         $data['password'] = $password;
-        //This var $password will be sent with the email so the user will know what to login
+        //This var $password will be sent with the email so the user will know what to login with
         // and it will make a random password for every new user so it's also quite secure
 
         $user = User::create($data);
 
-        return redirect()->route('chores.index');
+        return redirect()->route('admin.index');
     }
 }
