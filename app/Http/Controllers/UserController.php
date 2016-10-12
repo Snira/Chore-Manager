@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,7 +28,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'users.email' => 'required',
+            'users.email' => 'required|email',
             'users.name'  => 'required',
 
         ]);
@@ -40,6 +40,12 @@ class UserController extends Controller
         // and it will make a random password for every new user so it's also quite secure
 
         $user = User::create($data);
+
+        Mail::send('mails.signup', [ 'user' => $user, 'password' => $password ], function ($m) use ($user) {
+            $m->from('noreply@choremanager.com', 'Choremanager');
+
+            $m->to($user->email, $user->name)->subject('Welcome to Choremanager!');
+        });
 
         return redirect()->route('admin.index');
     }

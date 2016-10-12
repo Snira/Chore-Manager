@@ -15,7 +15,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/',['as'=> '/', 'uses' =>'HomeController@index'  ] );
 
 Route::resource('admin', 'UserController');
 Route::resource('chores', 'ChoreController');
