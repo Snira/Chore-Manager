@@ -7,13 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
 
     public function index()
     {
-        $users = User::all();
+
+        if(Auth::guest()){
+            return redirect('/');
+        }
+            $users = User::all();
 
         return view('manageusers', [ 'users' => $users ]);
     }

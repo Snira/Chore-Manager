@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Chore;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -26,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $chores = Chore::all();
+        $users = User::all();
+        return view('home',['chores' => $chores, 'users' => $users]);
     }
 }

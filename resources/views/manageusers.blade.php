@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(Auth::user()->role == 'admin')
-
-        @endif
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -17,9 +14,9 @@
                                     <th> {{ trans('choremanager.users') }}</th>
                                     <th>{{ trans('choremanager.options') }}</th>
                                 </tr>
-                                @foreach($users as $users)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{$users->name}}</td>
+                                        <td>{{$user->name}}</td>
                                         <td>
                                             <input type="checkbox" name="users[status]" checked data-toggle="toggle" data-on="Active"
                                                    data-off="Non-Active">
@@ -28,6 +25,7 @@
                                     </tr>
                                 @endforeach
                             </table>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </form>
                         <a href="{{route('users.create')}}">Create User</a>
                     </div>

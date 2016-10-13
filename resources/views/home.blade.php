@@ -8,24 +8,28 @@
 
                 <div class="panel-body">
 
-                    <table class="table">
-                        <tr>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="choretable">
+                            <thead>
+                            <tr>
+                                @foreach($chores as $chore)
+                                    <th>{{$chore->name}}</th>
+                                @endforeach
+                            </tr>
+                            </thead>
 
-                        </tr>
-                        <tr>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                        </tr>
-                        <tr>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                        </tr>
-                    </table>
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+    @foreach($users as $user)
+        <td>{{$user->name}}</td>
+
+
+@endforeach
