@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $chores = Chore::all();
-        $users = User::all();
+        $users = User::where('role','user')->get();
         return view('home',['chores' => $chores, 'users' => $users]);
     }
 }
