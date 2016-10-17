@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -17,6 +18,7 @@ class User extends Authenticatable
 {
 
     use Notifiable;
+    use SoftDeletes;
 
     const ROLE_ADMIN = 'admin';
     const ROLE_USER = 'user';
@@ -32,6 +34,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected $dates = ['deleted_at'];
 
 
     public function setPasswordAttribute($password)

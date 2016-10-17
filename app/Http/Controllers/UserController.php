@@ -18,7 +18,7 @@ class UserController extends Controller
         if(Auth::guest()){
             return redirect('/');
         }
-            $users = User::all();
+            $users = User::withTrashed()->get();
 
         return view('manageusers', [ 'users' => $users ]);
     }
@@ -47,11 +47,19 @@ class UserController extends Controller
         $user = User::create($data);
 
         Mail::send('mails.signup', [ 'user' => $user, 'password' => $password ], function ($m) use ($user) {
-            $m->from('noreply@choremanager.com', 'Choremanager');
+            $m->from('noreply@choremanager.nl', 'Choremanager');
 
             $m->to($user->email, $user->name)->subject('Welcome to Choremanager!');
         });
 
         return redirect()->route('admin.index');
+    }
+
+    public function inActive(){
+
+    }
+
+    public function active(){
+
     }
 }

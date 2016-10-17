@@ -7,6 +7,7 @@
                     <div class="panel-heading">Chore grouping of this week</div>
 
                     <div class="panel-body">
+                        {{$choreCount}}
 
                         <div class="table-responsive">
                             <table class="table table-hover" id="choretable">
