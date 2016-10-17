@@ -15,10 +15,10 @@ class UserController extends Controller
     public function index()
     {
 
-        if(Auth::guest()){
+        if (Auth::guest()) {
             return redirect('/');
         }
-            $users = User::withTrashed()->get();
+        $users = User::withTrashed()->where('role', 'user')->get();
 
         return view('manageusers', [ 'users' => $users ]);
     }
@@ -55,11 +55,23 @@ class UserController extends Controller
         return redirect()->route('admin.index');
     }
 
-    public function inActive(){
+    public function destroy($user)
+    {
+        $user = User::find($user);
+        $user->forceDelete();
+
+        return response()->redirectToRoute('/');
+    }
+
+
+    public function inActive()
+    {
 
     }
 
-    public function active(){
+
+    public function active()
+    {
 
     }
 }

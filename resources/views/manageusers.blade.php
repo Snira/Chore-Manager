@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -18,9 +18,14 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>
-                                            <input type="checkbox" name="users[status]" checked data-toggle="toggle" data-on="Active"
+                                            <input type="checkbox" name="users[status]" checked data-toggle="toggle"
+                                                   data-on="Active"
                                                    data-off="Non-Active">
-                                            <button class="btn btn-danger">{{ trans('choremanager.delete') }}</button>
+
+                                            <a href="{{ route('users.destroy', compact('user')) }}"
+                                               class="action btn btn-danger">
+                                                {{ trans('choremanager.delete') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

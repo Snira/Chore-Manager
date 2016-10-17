@@ -25,4 +25,5 @@ Route::get('user/create',
 Route::post('user/create',
     ['as' => 'users.create', 'uses' => 'UserController@store']);
 
+Route::get('user/delete/{user}', ['as' => 'users.destroy', 'uses' => 'UserController@destroy']);
 
