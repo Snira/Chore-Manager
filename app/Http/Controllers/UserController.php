@@ -55,23 +55,26 @@ class UserController extends Controller
         return redirect()->route('admin.index');
     }
 
+
     public function destroy($user)
     {
-        $user = User::find($user);
+        $user = User::withTrashed()->find($user);
         $user->forceDelete();
 
-        return response()->redirectToRoute('/');
+        return redirect()->route('admin.index');
     }
 
 
-    public function inActive()
+    public function activity($user)
     {
+        $switchUser = User::withTrashed()->find($user);
+        if ($switchUser->deleted_at) {
+            $switchUser->restore();
+        } elseif(!$switchUser->deleted_at) {
+            $switchUser->delete();
+        }
 
-    }
-
-
-    public function active()
-    {
+        return redirect()->route('admin.index');
 
     }
 }

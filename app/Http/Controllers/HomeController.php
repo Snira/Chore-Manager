@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $chores = Chore::all();
-        $users = User::withTrashed()->where('role','user')->get();
+        $users = User::where('role','user')->get();
         $choreCount = Chore::count();
         return view('home',['chores' => $chores, 'users' => $users, 'choreCount' => $choreCount]);
     }
