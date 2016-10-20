@@ -51,10 +51,10 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 @if(!Auth::guest())
-                    <li><a class="navbar-link" href="#">Leaderboards</a></li>
+
                     @if(Auth::user()->role == 'admin')
                         <li>
-                            <a href="{{ route('admin.index') }}">
+                            <a href="{{ route('user') }}">
                                 Manage users</a></li>
                         <li>
                             <a href="{{ route('chores.index') }}">

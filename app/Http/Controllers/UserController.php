@@ -15,12 +15,10 @@ class UserController extends Controller
     public function index()
     {
 
-        if (Auth::guest()) {
-            return redirect('/');
-        }
         $users = User::withTrashed()->where('role', 'user')->get();
 
         return view('manageusers', [ 'users' => $users ]);
+
     }
 
 
@@ -52,7 +50,7 @@ class UserController extends Controller
             $m->to($user->email, $user->name)->subject('Welcome to Choremanager!');
         });
 
-        return redirect()->route('admin.index');
+        return redirect()->route('user');
     }
 
 
@@ -61,7 +59,7 @@ class UserController extends Controller
         $user = User::withTrashed()->find($user);
         $user->forceDelete();
 
-        return redirect()->route('admin.index');
+        return redirect()->route('user');
     }
 
 
@@ -70,11 +68,11 @@ class UserController extends Controller
         $switchUser = User::withTrashed()->find($user);
         if ($switchUser->deleted_at) {
             $switchUser->restore();
-        } elseif(!$switchUser->deleted_at) {
+        } elseif ( ! $switchUser->deleted_at) {
             $switchUser->delete();
         }
 
-        return redirect()->route('admin.index');
+        return redirect()->route('user');
 
     }
 }

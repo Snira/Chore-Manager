@@ -11,20 +11,27 @@
 |
 */
 
-
-
 Auth::routes();
 
-Route::get('/',['as'=> '/', 'uses' =>'HomeController@index'  ] );
+Route::get('/', [ 'as' => '/', 'uses' => 'HomeController@index' ]);
 
-Route::resource('admin', 'UserController');
 Route::resource('chores', 'ChoreController');
 
-Route::get('user/create',
-    ['as' => 'users.create', 'uses' => 'UserController@create']);
-Route::post('user/create',
-    ['as' => 'users.create', 'uses' => 'UserController@store']);
+Route::group([ 'middleware' => 'auth' ], function () {
 
-Route::get('user/delete/{user}', ['as' => 'users.destroy', 'uses' => 'UserController@destroy']);
-Route::get('user/activity/{user}', ['as' => 'users.activity', 'uses' => 'UserController@activity']);
+    //User related
+    Route::get('user', [ 'as' => 'user', 'uses' => 'UserController@index' ]);
+    Route::get('user/create', [ 'as' => 'user.create', 'uses' => 'UserController@create' ]);
+    Route::post('user/create', [ 'as' => 'user.create', 'uses' => 'UserController@store' ]);
+
+    Route::get('user/delete/{user}', [ 'as' => 'user.destroy', 'uses' => 'UserController@destroy' ]);
+    Route::get('user/activity/{user}', [ 'as' => 'user.activity', 'uses' => 'UserController@activity' ]);
+
+    //Chore related
+    Route::get('chore', [ 'as' => 'chore', 'uses' => 'ChoreController@index' ]);
+    Route::get('chore/create', [ 'as' => 'chore.create', 'uses' => 'ChoreController@create' ]);
+});
+
+
+
 

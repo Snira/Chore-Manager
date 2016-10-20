@@ -24,7 +24,7 @@
                                 @endforeach
                             </table>
                         </form>
-                        <a href="{{route('users.create')}}">Create Chore</a>
+                        <a href="{{route('chore.create')}}">Create Chore</a>
                     </div>
                 </div>
             </div>
