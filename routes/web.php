@@ -30,6 +30,9 @@ Route::group([ 'middleware' => 'auth' ], function () {
     //Chore related
     Route::get('chore', [ 'as' => 'chore', 'uses' => 'ChoreController@index' ]);
     Route::get('chore/create', [ 'as' => 'chore.create', 'uses' => 'ChoreController@create' ]);
+    Route::post('chore/create', [ 'as' => 'chore.create', 'uses' => 'ChoreController@store' ]);
+
+    Route::get('chore/delete/{chore}', [ 'as' => 'chore.destroy', 'uses' => 'ChoreController@destroy' ]);
 });
 
 

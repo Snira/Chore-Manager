@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * Brand model.
+ * User model.
  *
  * @property int    $id
  * @property string $name

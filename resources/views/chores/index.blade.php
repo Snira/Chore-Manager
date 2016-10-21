@@ -20,6 +20,11 @@
                                         <td>
                                             {{$chore->description}}
                                         </td>
+                                        <td>
+                                            <a href="{{ route('chore.destroy', compact('chore')) }}">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </table>
