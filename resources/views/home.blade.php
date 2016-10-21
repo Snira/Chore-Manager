@@ -4,16 +4,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Chore grouping of this week</div>
-
+                    <div class="panel-heading">{{ trans('choremanager.home.title') }}</div>
                     <div class="panel-body">
-                        {{$choreCount}}
-
                         <div class="table-responsive">
                             <table class="table table-hover" id="choretable">
                                 <thead>
                                 <tr>
-                                    <th> - </th>
+                                    <th> -</th>
                                     @foreach($chores as $chore)
                                         <th>{{$chore->name}}</th>
                                     @endforeach
@@ -21,41 +18,37 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th>Maandag</th>
+                                    <th>{{ trans('choremanager.home.days.monday') }}</th>
                                     @foreach($users as $user)
                                         <td>{{$user->name}}</td>
                                     @endforeach
                                 </tr>
                                 <tr>
-                                    <th>Dinsdag</th>
+                                    <th>{{ trans('choremanager.home.days.tuesday') }}</th>
                                     @foreach($users as $user)
                                         <td>{{$user->name}}</td>
                                     @endforeach
                                 </tr>
                                 <tr>
-                                    <th>Woensdag</th>
+                                    <th>{{ trans('choremanager.home.days.wednesday') }}</th>
                                     @foreach($users as $user)
                                         <td>{{$user->name}}</td>
                                     @endforeach
                                 </tr>
                                 <tr>
-                                    <th>Donderdag</th>
+                                    <th>{{ trans('choremanager.home.days.thursday') }}</th>
                                     @foreach($users as $user)
                                         <td>{{$user->name}}</td>
                                     @endforeach
                                 </tr>
                                 <tr>
-                                    <th>Vrijdag</th>
+                                    <th>{{ trans('choremanager.home.days.friday') }}</th>
                                     @foreach($users as $user)
                                         <td>{{$user->name}}</td>
                                     @endforeach
                                 </tr>
-
-
                                 </tbody>
-
                             </table>
-
                         </div>
                     </div>
                 </div>

@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+                    <div class="panel-heading">  {{ trans('choremanager.chore.title') }}</div>
 
                     <div class="panel-body">
                         <form action="">
                             <table class="table">
                                 <tr>
-                                    <th> Chore</th>
-                                    <th>Description</th>
+                                    <th>{{ trans('choremanager.chore.chore') }}</th>
+                                    <th>{{ trans('choremanager.chore.description') }}</th>
                                 </tr>
                                 @foreach($chores as $chore)
                                     <tr>
@@ -29,7 +29,7 @@
                                 @endforeach
                             </table>
                         </form>
-                        <a href="{{route('chore.create')}}">Create Chore</a>
+                        <a href="{{route('chore.create')}}">{{ trans('choremanager.chore.create') }}</a>
                     </div>
                 </div>
             </div>

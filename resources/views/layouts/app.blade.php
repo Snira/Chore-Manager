@@ -56,10 +56,14 @@
                     @if(Auth::user()->role == 'admin')
                         <li>
                             <a href="{{ route('user') }}">
-                                Manage users</a></li>
+                                {{ trans('choremanager.app.users') }}
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ route('chores.index') }}">
-                                Manage chores</a></li>
+                                {{ trans('choremanager.app.chores') }}
+                            </a>
+                        </li>
                     @endif
                 @endif
 
@@ -71,8 +75,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}">  {{ trans('choremanager.app.login') }}</a></li>
+                    <li><a href="{{ url('/register') }}">  {{ trans('choremanager.app.regi') }}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -84,7 +88,7 @@
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    Logout
+                                    {{ trans('choremanager.app.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST"
