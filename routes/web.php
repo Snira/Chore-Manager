@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', [ 'as' => '/', 'uses' => 'HomeController@index' ]);
 
-Route::resource('chores', 'ChoreController');
+
 
 Route::group([ 'middleware' => 'auth' ], function () {
 

@@ -15,9 +15,9 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::withTrashed()->where('role', 'user')->get();
+        $users = User::withTrashed()->where('role', 'user')->orderBy('name')->get();
 
-        return view('manageusers', [ 'users' => $users ]);
+        return view('users.index', [ 'users' => $users ]);
 
     }
 

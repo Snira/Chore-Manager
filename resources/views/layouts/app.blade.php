@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('chores.index') }}">
+                            <a href="{{ route('chore') }}">
                                 {{ trans('choremanager.app.chores') }}
                             </a>
                         </li>
