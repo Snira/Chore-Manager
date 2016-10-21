@@ -10,12 +10,12 @@
                         <form method="post" enctype="multipart/form-data" action="{{ route('user.create') }}">
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username">{{ trans('choremanager.user.email') }}</label>
-                                <input class="form-control" id="username" type="text" name="users[email]">
+                                <input required class="form-control" id="username" type="email" name="users[email]">
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username">{{ trans('choremanager.user.name') }}</label>
-                                <input class="form-control" id="username" type="text" name="users[name]">
+                                <input required class="form-control" id="username" type="text" name="users[name]">
                             </div>
 
                             <div class="form-group">

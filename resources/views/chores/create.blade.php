@@ -10,15 +10,15 @@
                         <form method="post" enctype="multipart/form-data" action="{{ route('chore.create') }}">
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="chorename">{{ trans('choremanager.chore.name') }}</label>
-                                <input class="form-control" id="chorename" type="text" name="chores[name]">
+                                <input required class="form-control" id="chorename" type="text" name="chores[name]">
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="choredescription">
                                     {{ trans('choremanager.chore.descriptionlabel') }}
                                 </label>
-                                <textarea class="form-control" id="choredescription" name="chores[description]">
-                                </textarea>
+                                <input required type="text" class="form-control" id="choredescription" name="chores[description]">
+
                             </div>
 
                             <div class="form-group">

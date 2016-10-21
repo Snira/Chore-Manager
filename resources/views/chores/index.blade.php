@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.choremodal')
 
 @section('content')
     <div class="container">
@@ -21,8 +22,10 @@
                                             {{$chore->description}}
                                         </td>
                                         <td>
-                                            <a href="{{ route('chore.destroy', compact('chore')) }}">
-                                                <span class="glyphicon glyphicon-trash"></span>
+                                            <a href="#">
+                                                <span data-toggle="modal" data-target="#myModal"
+                                                      class="glyphicon glyphicon-trash">
+                                                </span>
                                             </a>
                                         </td>
                                     </tr>
@@ -35,4 +38,5 @@
             </div>
         </div>
     </div>
+
 @endsection

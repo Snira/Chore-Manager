@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.usermodal')
 
 @section('content')
     <div class="container">
@@ -23,11 +24,9 @@
                                             @else {{trans('choremanager.user.inactive')}}
                                             @endif
                                         </a>
-
-                                        <a href="{{ route('user.destroy', compact('user')) }}"
-                                           class="action btn btn-danger" id="delete">
+                                        <button class="btn btn-danger" id="delete" data-toggle="modal" data-target="#myModal">
                                             {{ trans('choremanager.user.delete') }}
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
