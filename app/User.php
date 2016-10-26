@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function chores()
+    {
+        return $this->belongsToMany(Chore::class,'user_chore','user_id', 'chore_id');
+    }
+
 
 
 }

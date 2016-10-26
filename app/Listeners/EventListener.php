@@ -31,20 +31,30 @@ class EventListener
      *
      * @return void
      */
-    public function handle(UserActivater $event, UserDeactivater $event)
+    public function handle(UserActivater $event)
     {
         $days = [ 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag' ];
         $chores = Chore::all();
-        $users = User::all();
+        $users = User::all()->toArray();
 
-        foreach ($days as $day) {
-            foreach ($chores as $chore) {
-                next($users);
-                if (null) {
-                    reset($users);
-                }
 
+        foreach ($chores as $chore) {
+            $nextuser = next($users);
+            if($nextuser == false){
+                reset($users);
+                $user = current($users);
             }
+            if($nextuser == true){
+                $user = $nextuser;
+            }
+
+            var_dump($user);
+
+            $user->chores()->attach('Chore');
+
+
+
         }
+
     }
 }

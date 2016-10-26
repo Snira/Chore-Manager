@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserActivater;
 use App\User;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
 class UserController extends Controller
 {
 
@@ -68,6 +69,7 @@ class UserController extends Controller
         $switchUser = User::withTrashed()->find($user);
         if ($switchUser->deleted_at) {
             $switchUser->restore();
+            event(new UserActivater($user));
         } elseif ( ! $switchUser->deleted_at) {
             $switchUser->delete();
         }

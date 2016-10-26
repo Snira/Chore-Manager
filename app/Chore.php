@@ -29,4 +29,9 @@ class Chore extends Model
         'name', 'description',
     ];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'user_chore','chore_id', 'user_id');
+    }
+
 }
