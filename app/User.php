@@ -44,6 +44,11 @@ class User extends Authenticatable
         //Hashes all passwords
     }
 
+    public function isAdmin()
+    {
+        return $this->role == 'admin';
+    }
+
 
 
 }
