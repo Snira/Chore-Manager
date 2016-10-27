@@ -15,10 +15,10 @@
                             <div class="form-group">
                                 <label for="filter"></label>
                                 <select class="form-control" name="filter" id="filter">
-                                    <option hidden disabled selected value="">Filter on user type</option>
+                                    <option hidden selected value="">Filter on user type</option>
                                     <option value="1">All</option>
                                     <option value="2">Admins</option>
-                                    <option value="3">Users</option>
+                                    <option value="3">Normal Users</option>
                                 </select>
                             </div>
                             <div class="form-group">
