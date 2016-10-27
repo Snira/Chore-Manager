@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::withTrashed()->where('role', 'user')->orderBy('name')->get();
+        $users = User::withTrashed()->orderBy('name')->get();
 
         return view('users.index', [ 'users' => $users ]);
 
@@ -84,6 +84,28 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('profile',['user' => $user]);
+        return view('profile', [ 'user' => $user ]);
+    }
+
+
+    public function filtered(Request $request)
+    {
+        $filter = $request->input('filter');
+
+        if($filter == null){
+            $users = User::withTrashed()->orderBy('name')->get();
+        }
+        if($filter == 1){
+            $users = User::withTrashed()->orderBy('name')->get();
+        }
+        if($filter == 2){
+            $users = User::withTrashed()->where('role', 'admin')->orderBy('name')->get();
+        }
+        if($filter == 3){
+            $users = User::withTrashed()->where('role', 'user')->orderBy('name')->get();
+        }
+
+        return view('users.index', [ 'users' => $users ]);
+
     }
 }

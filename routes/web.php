@@ -32,6 +32,8 @@ Route::group([ 'middleware' => 'auth' ], function () {
         Route::get('user/delete/{user}', [ 'as' => 'user.destroy', 'uses' => 'UserController@destroy' ]);
         Route::get('user/activity/{user}', [ 'as' => 'user.activity', 'uses' => 'UserController@activity' ]);
 
+        Route::post('user/filtered', [ 'as' => 'user.filtered', 'uses' => 'UserController@filtered' ]);
+
         //Chore related
         Route::get('chore', [ 'as' => 'chore', 'uses' => 'ChoreController@index' ]);
         Route::get('chore/create', [ 'as' => 'chore.create', 'uses' => 'ChoreController@create' ]);
