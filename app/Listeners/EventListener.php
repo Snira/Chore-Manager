@@ -33,7 +33,7 @@ class EventListener
      */
     public function handle(UserActivater $event)
     {
-        $days = [ 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag' ];
+       // $days = [ 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag' ];
         $chores = Chore::all();
         $users = User::all()->toArray();
 
@@ -50,7 +50,10 @@ class EventListener
 
             var_dump($user);
 
-            $user->chores()->attach('Chore');
+
+
+            $user->chores()->attach($chore->id);
+
 
 
 

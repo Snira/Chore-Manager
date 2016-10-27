@@ -8,7 +8,8 @@ return [
         'regi' => 'Register',
         'logout' => 'Logout',
         'submit' => 'Save',
-        'cancel' => 'Cancel'
+        'cancel' => 'Cancel',
+        'profile' => 'Profile'
     ],
     'home' => [
         'title' => 'Chore schedule',

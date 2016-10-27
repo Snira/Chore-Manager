@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function chores()
     {
-        return $this->belongsToMany(Chore::class,'user_chore','user_id', 'chore_id');
+        return $this->belongsToMany(Chore::class,'user_chore','users_id', 'chores_id');
     }
 
 

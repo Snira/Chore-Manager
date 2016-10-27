@@ -20,6 +20,7 @@ Auth::routes();
 Route::group([ 'middleware' => 'auth' ], function () {
     //These are the routes you can only visit when logged in
     Route::get('/', [ 'as' => '/', 'uses' => 'HomeController@index' ]);
+    Route::get('profile', [ 'as' => 'profile', 'uses' => 'UserController@profile' ]);
 
     //All the management stuff is done by an Administrator
     Route::group([ 'middleware' => 'admin' ], function () {

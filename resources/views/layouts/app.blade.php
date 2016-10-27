@@ -77,6 +77,7 @@
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">  {{ trans('choremanager.app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">  {{ trans('choremanager.app.regi') }}</a></li>
+
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -84,6 +85,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/profile') }}">  {{ trans('choremanager.app.profile') }}</a></li>
+
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
