@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BuildTable;
 use App\Events\UserActivater;
 use App\User;
 use Illuminate\Console\Scheduling\Event;
@@ -52,6 +53,8 @@ class UserController extends Controller
             $m->to($user->email, $user->name)->subject('Welcome to Choremanager!');
         });
 
+        event(new BuildTable);
+
         return redirect()->route('user');
     }
 
@@ -60,6 +63,8 @@ class UserController extends Controller
     {
         $user = User::withTrashed()->find($user);
         $user->forceDelete();
+
+        event(new BuildTable);
 
         return redirect()->route('user');
     }
@@ -70,9 +75,10 @@ class UserController extends Controller
         $switchUser = User::withTrashed()->find($user);
         if ($switchUser->deleted_at) {
             $switchUser->restore();
-            event(new UserActivater($user));
+            event(new BuildTable);
         } elseif ( ! $switchUser->deleted_at) {
             $switchUser->delete();
+            event(new BuildTable);
         }
 
         return redirect()->route('user');

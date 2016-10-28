@@ -10,18 +10,17 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+## Installation guide 
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+1. Clone this repository from Github.
+2. Copy the .env.example file to .env.
+3. Install the PHP dependencies using Composer: composer install.
+4. Generate a secure key using php artisan key:generate.
+5. Create a database for Choremanager and enter the details in the .env file.
+6. Install the database: php artisan migrate --seed. Using the --seed flag ensures that an admin user is created and the lookup tables are populated with data. Write down the password to the admin account, as it is a random string.
+7. Install the NodeJS dependencies using NPM: npm install. If you haven't done so already, install the gulp package globally: npm install -g gulp.
+8. Install the assets using the Gulp task runner: gulp. This creates the scripts and stylesheets and installs the icon fonts and images that are used in the application.
 
-## Contributing
+## Running the application
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+You can start a local server using the built-in PHP web server: php artisan serve. The command starts the web server and makes it available through localhost:8000.

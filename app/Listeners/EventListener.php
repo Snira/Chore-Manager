@@ -3,8 +3,7 @@
 namespace App\Listeners;
 
 use App\Chore;
-use App\Events\UserActivater;
-use App\Events\UserDeactivater;
+use App\Events\BuildTable;
 use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -26,38 +25,30 @@ class EventListener
     /**
      * Handle the event.
      *
-     * @param  UserActivater  $event
-     * @param UserDeactivater $event
+     * @param  BuildTable  $event
      *
      * @return void
      */
-    public function handle(UserActivater $event)
+    public function handle(BuildTable $event)
     {
-       // $days = [ 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag' ];
+
+        $days = [ 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag' ];
         $chores = Chore::all();
         $users = User::all()->toArray();
 
+        $chores->each(function (Chore $chore) {
+            $chore->users()->sync([]);
+        });
+        //Dit haalt eerst de koppel tabel leeg voordat deze opnieuw gevuld kan worden.
 
-        foreach ($chores as $chore) {
-            $nextuser = next($users);
-            if($nextuser == false){
-                reset($users);
-                $user = current($users);
+        foreach ($days as $index => $day){
+            foreach ($chores as $chore) {
+                if(false === $user = next($users)){
+                    $user = reset($users);
+                }
+
+                $chore->users()->attach($user['id'], ['day' => $index]);
             }
-            if($nextuser == true){
-                $user = $nextuser;
-            }
-
-            var_dump($user);
-
-
-
-            $user->chores()->attach($chore->id);
-
-
-
-
         }
-
     }
 }

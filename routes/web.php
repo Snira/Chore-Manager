@@ -40,6 +40,8 @@ Route::group([ 'middleware' => 'auth' ], function () {
         Route::post('chore/create', [ 'as' => 'chore.create', 'uses' => 'ChoreController@store' ]);
 
         Route::get('chore/delete/{chore}', [ 'as' => 'chore.destroy', 'uses' => 'ChoreController@destroy' ]);
+
+        Route::post('chore/searched', [ 'as' => 'chore.searched', 'uses' => 'ChoreController@searched' ]);
     });
 
 

@@ -17,8 +17,8 @@ class AddUserChoreTable extends Migration
             $table->integer('chores_id')->unsigned();
             $table->integer('users_id')->unsigned();
 
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('chores_id')->references('id')->on('chores');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('chores_id')->references('id')->on('chores')->onDelete('cascade');
         });
 
     }
@@ -30,6 +30,6 @@ class AddUserChoreTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('user_chore');
     }
 }

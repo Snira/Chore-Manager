@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Chore;
 use Illuminate\Http\Request;
+use App\Events\BuildTable;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class ChoreController extends Controller
 {
@@ -35,15 +37,36 @@ class ChoreController extends Controller
 
         $chore = Chore::create($data);
 
+        event(new BuildTable);
+
         return redirect()->route('chore');
 
     }
 
+
     public function destroy($chore)
     {
+
         $chore = Chore::find($chore);
         $chore->delete();
 
+        event(new BuildTable);
+
         return redirect()->route('chore');
+    }
+
+
+    public function searched(Request $request)
+    {
+        $searched = $request->input('search');
+
+        $chores = Chore::where('name', 'like', '%'.$searched.'%')->orWhere('description', 'like',
+                '%'.$searched.'%')->get();
+
+        if(sizeof($chores) == 0){
+            return redirect()->route('chore')->with('message','No specific results found');
+        }
+        return view('chores.index', [ 'chores' => $chores ]);
+
     }
 }

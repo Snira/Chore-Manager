@@ -31,7 +31,8 @@ class Chore extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'user_chore','chores_id', 'users_id');
+        return $this->belongsToMany(User::class,'user_chore','chores_id', 'users_id')
+            ->withPivot('day');
     }
 
 }

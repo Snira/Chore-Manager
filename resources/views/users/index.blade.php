@@ -22,7 +22,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Add</button>
+                                <button class="btn btn-primary" type="submit">Add</button>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </div>
                         </form>
